@@ -30,7 +30,7 @@ if (
    (player === "east" && computer === "west") ||
    (player === "north" && computer === "south") ||
    (player === "south" && computer === "north") ||
-   (player === "west" && computer === "east") ||
+   (player === "west" && computer === "east") 
 ) {
    return "Here's it's opposite!";
 }
@@ -38,10 +38,7 @@ if (
 return "Here's it's opposite!";
 }
 
- let form = document.getElementById("gameForm");
-
- form.addEventListener("submit", function(event) {
-  event.preventDefault();
+ let form = document.getElementById("game.jsForm");
 
   let playerChoice = document 
   .getElementById("playerChoice")
