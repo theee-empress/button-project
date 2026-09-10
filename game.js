@@ -1,4 +1,4 @@
-let form = document.getElementById("gameForm");
+let form = document.getElementById("game.jsForm");
 
 form.addEventListener("submit"), function(event) 
  event.preventDefault();
@@ -23,12 +23,38 @@ if(player === computer) {
 }
 
 if (
-   (player === "rock" && computer === "scissors) ||
-   (player === "paper"&& computer === "rock") ||
-   (player === "scissors" && computer === "paper") 
+   (player === "up" && computer === "down") ||
+   (player === "down" && computer === "up") ||
+   (player === "left" && computer === "right") ||
+   (player === "right" && computer === "left" ||
+   (player === "east" && computer === "west" ||
+   (player === "north" && computer === "south" ||
+   (player === "south" && computer === "north" ||
+   (player === "west" && computer === "east" ||
 ) {
-   return "You win!";
+   return "Here's it's opposite!";
 }
 
-return "Computer wins!";
+return "Here's it's opposite!";
 }
+
+ let form = document.getElementById("gameForm");
+
+ form.addEventListener("submit", function(event) {
+  event.peventDefault();
+
+  let playerChoice = document 
+  .getElementById("playerChoice")
+  .value
+  .toLowerCase();
+
+  let computerChoice = getComputerChoice();
+
+let result = determineWinner(
+  playerChoice,
+  computerChoice
+);
+
+document.getElementById("result").textContent =
+  "Computer chose" + computer choice + "."+ result;
+}); 
