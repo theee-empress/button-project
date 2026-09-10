@@ -24,7 +24,9 @@ function determineWinner(player, computer) {
     (player === "fast" && computer === "slow") ||
     (player === "slow" && computer === "fast") ||
     (player === "big" && computer === "small") ||
-    (player === "small" && computer "big") 
+    (player === "small" && computer "big") ||
+    (player === "go" && computer "stop") ||
+    (player === "stop" && computer "go") 
   ) {
     return "Nice! Here's its opposite!";
   }
