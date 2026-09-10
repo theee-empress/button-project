@@ -1,57 +1,46 @@
-let form = document.getElementById("game.jsForm");
-
-form.addEventListener("submit"), function(event) 
- event.preventDefault();
-
-let choice= 
-   document.getElementById("playerChoice").value;
-
-console.log(choice);
-));
-
-function getComputerChoice () {
+function getComputerChoice() {
   let choices = ["up", "down", "left", "right", "cold", "hot", "north", "south", "east", "west"];
-
-let randomIndex =
-  Math.floor(Math.random() * choices.length);{
-return choices[randomIndex];
+  let randomIndex = Math.floor(Math.random() * choices.length);
+  return choices[randomIndex];
 }
 
 function determineWinner(player, computer) {
-if(player === computer) {
-  return "Here's it's opposite!";
+  if (player === computer) {
+    return "You tied! You picked the exact same thing.";
+  }
+
+
+  if (
+    (player === "up" && computer === "down") ||
+    (player === "down" && computer === "up") ||
+    (player === "left" && computer === "right") ||
+    (player === "right" && computer === "left") ||
+    (player === "east" && computer === "west") ||
+    (player === "west" && computer === "east") ||
+    (player === "north" && computer === "south") ||
+    (player === "south" && computer === "north")
+  ) {
+    return "Nice! Here's its opposite!";
+  }
+
+   return "Not an opposite. Try again!"; 
 }
 
-if (
-   (player === "up" && computer === "down") ||
-   (player === "down" && computer === "up") ||
-   (player === "left" && computer === "right") ||
-   (player === "right" && computer === "left") ||
-   (player === "east" && computer === "west") ||
-   (player === "north" && computer === "south") ||
-   (player === "south" && computer === "north") ||
-   (player === "west" && computer === "east") 
-) {
-   return "Here's it's opposite!";
-}
+let form = document.getElementById("gameForm");
 
-return "Here's it's opposite!";
-}
-
- let form = document.getElementById("game.jsForm");
+form.addEventListener("submit", function(event) {
+  event.preventDefault(); // Stops page from reloading
 
   let playerChoice = document 
-  .getElementById("playerChoice")
-  .value
-  .toLowerCase();
-
+    .getElementById("playerChoice")
+    .value
+    .toLowerCase()
+    .trim();
   let computerChoice = getComputerChoice();
 
-let result = determineWinner(
-  playerChoice,
-  computerChoice
-);
+  let result = determineWinner(playerChoice, computerChoice);
+ 
+ document.getElementById("result").textContent =
+    "Computer chose " + computerChoice + ". " + result;
+});
 
-document.getElementById("result").textContent =
-  "Computer chose" + computer choice + "."+ result;
-}); 
