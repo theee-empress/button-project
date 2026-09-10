@@ -1,5 +1,5 @@
 function getComputerChoice() {
-  let choices = ["up", "down", "left", "right", "cold", "hot", "north", "south", "east", "west"];
+  let choices = ["up", "down", "left", "right", "cold", "hot", "north", "south", "east", "west", "hot", "cold", "hi", "bye", "big", "small", "stop", "go"];
   let randomIndex = Math.floor(Math.random() * choices.length);
   return choices[randomIndex];
 }
