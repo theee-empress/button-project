@@ -20,7 +20,11 @@ function determineWinner(player, computer) {
     (player === "north" && computer === "south") ||
     (player === "south" && computer === "north") ||
     (player === "hot" && computer === "cold") ||
-    )player === "cold" && computer ==="hot") 
+    (player === "cold" && computer ==="hot") ||
+    (player === "fast" && computer === "slow") ||
+    (player === "slow" && computer === "fast") ||
+    (player === "big" && computer === "small") ||
+    (player === "small" && computer "big") 
   ) {
     return "Nice! Here's its opposite!";
   }
