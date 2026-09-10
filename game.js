@@ -41,7 +41,7 @@ return "Here's it's opposite!";
  let form = document.getElementById("gameForm");
 
  form.addEventListener("submit", function(event) {
-  event.peventDefault();
+  event.preventDefault();
 
   let playerChoice = document 
   .getElementById("playerChoice")
