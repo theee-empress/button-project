@@ -8,8 +8,6 @@ const opposites = {
   "hi": "bye", "bye": "hi",
   "big": "small", "small": "big",
   "stop": "go", "go": "stop",
-  "high": "low", "low": "high",
-  "open": "closed", "closed": "open"
 };
 
 let form = document.getElementById("gameForm");
