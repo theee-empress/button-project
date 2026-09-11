@@ -7,7 +7,9 @@ const opposites = {
   "fast": "slow", "slow": "fast",
   "hi": "bye", "bye": "hi",
   "big": "small", "small": "big",
-  "stop": "go", "go": "stop"
+  "stop": "go", "go": "stop",
+  "high": "low", "low": "high",
+  "open": "close", "close": "open"
 };
 
 let form = document.getElementById("gameForm");
