@@ -24,7 +24,7 @@ form.addEventListener("submit", function(event) {
   let resultElement = document.getElementById("result");
 
                       if (opposites[playerChoice]) {
-    let computerChoice = opposites[playerChoice]; // Instantly get the perfect opposite
+    let computerChoice = opposites[playerChoice];
     
     resultElement.textContent = 
       "Computer chose " + computerChoice + ". Nice! Here's its opposite!";
