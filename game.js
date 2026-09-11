@@ -9,7 +9,7 @@ const opposites = {
   "big": "small", "small": "big",
   "stop": "go", "go": "stop",
   "high": "low", "low": "high",
-  "open": "close", "close": "open"
+  "open": "closed", "closed": "open"
 };
 
 let form = document.getElementById("gameForm");
