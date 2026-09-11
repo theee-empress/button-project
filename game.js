@@ -10,41 +10,27 @@ const opposites = {
   "stop": "go", "go": "stop"
 };
 
-function getComputerChoice(playerChoice) {
-  if (opposites[playerChoice]) {
-    return opposites[playerChoice];
-  }
+let form = document.getElementById("gameForm");
 
-
-let choices = Object.keys(opposites);
-  let randomIndex = Math.floor(Math.random() * choices.length);
-  return choices[randomIndex];
-}
-
-function determineWinner(player, computer) {
-  if (player === computer) {
-    return "You tied! You picked the exact same thing.";
-  }
- if (opposites[player] === computer) {
-    return "Nice! Here's its opposite!";
-  }
-
-  return "Not an opposite. Try again!"; 
-}
-
-let form = document.getElementById("game.jsForm");
 form.addEventListener("submit", function(event) {
-  event.preventDefault(); 
+  event.preventDefault();
 
-  let playerChoice = document 
+   let playerChoice = document 
     .getElementById("playerChoice")
     .value
     .toLowerCase()
     .trim();
-    let computerChoice = getComputerChoice(playerChoice);
 
-  let result = determineWinner(playerChoice, computerChoice);
- 
-  document.getElementById("result").textContent =
-    "Computer chose " + computerChoice + ". " + result;
+  let resultElement = document.getElementById("result");
+
+                      if (opposites[playerChoice]) {
+    let computerChoice = opposites[playerChoice]; // Instantly get the perfect opposite
+    
+    resultElement.textContent = 
+      "Computer chose " + computerChoice + ". Nice! Here's its opposite!";
+  } else {
+
+   resultElement.textContent = 
+      "That word isn't in the game. Please enter a valid choice!";
+  }
 });
