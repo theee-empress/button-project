@@ -1,5 +1,22 @@
-function getComputerChoice() {
-  let choices = ["up", "down", "left", "right", "cold", "hot", "north", "south", "east", "west", "fast", "slow", "hi", "bye", "big", "small", "stop", "go"];
+const opposites = {
+  "up": "down", "down": "up",
+  "left": "right", "right": "left",
+  "cold": "hot", "hot": "cold",
+  "north": "south", "south": "north",
+  "east": "west", "west": "east",
+  "fast": "slow", "slow": "fast",
+  "hi": "bye", "bye": "hi",
+  "big": "small", "small": "big",
+  "stop": "go", "go": "stop"
+};
+
+function getComputerChoice(playerChoice) {
+  if (opposites[playerChoice]) {
+    return opposites[playerChoice];
+  }
+
+
+let choices = Object.keys(opposites);
   let randomIndex = Math.floor(Math.random() * choices.length);
   return choices[randomIndex];
 }
@@ -8,49 +25,26 @@ function determineWinner(player, computer) {
   if (player === computer) {
     return "You tied! You picked the exact same thing.";
   }
-
-
-  if (
-    (player === "up" && computer === "down") ||
-    (player === "down" && computer === "up") ||
-    (player === "left" && computer === "right") ||
-    (player === "right" && computer === "left") ||
-    (player === "east" && computer === "west") ||
-    (player === "west" && computer === "east") ||
-    (player === "north" && computer === "south") ||
-    (player === "south" && computer === "north") ||
-    (player === "hot" && computer === "cold") ||
-    (player === "cold" && computer ==="hot") ||
-    (player === "fast" && computer === "slow") ||
-    (player === "slow" && computer === "fast") ||
-    (player === "big" && computer === "small") ||
-    (player === "small" && computer === "big") ||
-    (player === "go" && computer === "stop") ||
-    (player === "stop" && computer === "go") ||
-    (player === "bye" && computer === "hi") ||
-    (player === "hi" && computer === "bye") 
-  ) {
+ if (opposites[player] === computer) {
     return "Nice! Here's its opposite!";
   }
 
-   return "Not an opposite. Try again!"; 
+  return "Not an opposite. Try again!"; 
 }
 
-let form = document.getElementById("gameForm");
-
+let form = document.getElementById("game.jsForm");
 form.addEventListener("submit", function(event) {
-  event.preventDefault(); // Stops page from reloading
+  event.preventDefault(); 
 
   let playerChoice = document 
     .getElementById("playerChoice")
     .value
     .toLowerCase()
     .trim();
-  let computerChoice = getComputerChoice();
+    let computerChoice = getComputerChoice(playerChoice);
 
   let result = determineWinner(playerChoice, computerChoice);
  
- document.getElementById("result").textContent =
+  document.getElementById("result").textContent =
     "Computer chose " + computerChoice + ". " + result;
 });
-
